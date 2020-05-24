@@ -1,0 +1,13 @@
+$ORIGIN 50.168.192.in-addr.arpa.
+$TTL 84600
+@ IN    SOA     dns.valkysoft.com. root@valkysoft.com. (
+            123312 ; serial
+            1h ; refresh
+            2h ; retry
+            1w ; expire
+            1h) ; min cache
+@ IN    NS      dns.valkysoft.com.
+; Hosts en la zona
+2 IN    PTR     dns.valkysoft.com.
+3 IN    PTR     http.valkysoft.com.
+4 IN    PTR     ftp.valkysoft.com.

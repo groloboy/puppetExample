@@ -1,1 +1,4 @@
 .vagrant*
+dns.pp
+**/dns/manifests/init.pp
+resolver/

@@ -1,20 +1,6 @@
-# exec { 'yum-update':
-#     command => "/usr/bin/yum -y update"
-# }
-
-package { "mongodb":
-    ensure => installed,
-    # require => Exec["yum-update"]
-}
-
-service{ "mongodb":
-    ensure => running,
-    require => Package['mongodb']    
-}
 
 package { "redis-server":
     ensure => latest,
-    # require => Exec["yum-update"]
 }
 
 service{ "redis-server":
@@ -27,5 +13,14 @@ file { "/home/vagrant/project":
     owner => "vagrant",
     group => "vagrant",
     mode => 750,
-
 }
+
+$nameservers = ['192.168.50.2']
+
+ file { '/etc/resolv.conf':
+   ensure  => file,
+   owner   => 'root',
+   group   => 'root',
+   mode    => '0644',
+   content => template('resolver/resolv.conf.erb'),
+ }

@@ -3,11 +3,23 @@
 # Performs initial configuration tasks for all Vagrant boxes.
 #
 class baseconfig {
-  host { 'hostmachine':
-    ip => '192.168.0.1';
-  }
-
-  package { ['vsftpd','httpd','bind', 'bind-utils','lynx','git', 'tree', 'unzip']:
+  package { ['lynx','git','tree','unzip']:
     ensure => present;
+  }
+  $nameservers = ['192.168.50.2']
+
+  file { '/etc/resolv.conf':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template('resolver/resolv.conf.erb'),
+  }
+  file { '/etc/selinux/config':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0664',
+    content => template('baseconfig/config'),
   }
 }
