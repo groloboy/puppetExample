@@ -3,9 +3,6 @@
 # Performs initial configuration tasks for all Vagrant boxes.
 #
 class baseconfig {
-  package { ['lynx','git','tree','unzip']:
-    ensure => present;
-  }
   $nameservers = ['192.168.50.2']
 
   file { '/etc/resolv.conf':

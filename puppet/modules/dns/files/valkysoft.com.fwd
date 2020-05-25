@@ -1,14 +1,14 @@
 $ORIGIN valkysoft.com.
 $TTL 84600
-@           IN  SOA     dns.valkysoft.com. root@valkysoft.com. (
+@       IN  SOA     dns.valkysoft.com. root@valkysoft.com. (
             123312 ; serial
             1h ; refresh
             2h ; retry
             1w ; expire
             1h) ; min cache
-@               IN NS dns.valkysoft.com.
+@       IN NS dns.valkysoft.com.
 ; hosts en la zona
-dns             IN  A           192.168.50.2
-http            IN  A           192.168.50.3
-ftp             IN  A           192.168.50.4
-www             IN  CNAME       http
+dns     IN  A           192.168.50.2
+http    IN  A           192.168.50.3
+ftp     IN  A           192.168.50.4
+www     IN  CNAME       http
